@@ -1,8 +1,9 @@
 # coding=utf-8
 
+from urllib.parse import urljoin
+
 from setuptools import find_packages
 from setuptools import setup
-from urllib.parse import urljoin
 
 from xkits_command.attribute import __author__
 from xkits_command.attribute import __author_email__
