@@ -126,8 +126,8 @@ def add_cmd(_arg: ArgParser):
 
 
 @CommandExecutor(add_cmd, add_cmd_list, add_cmd_incomplete,
-             add_cmd_keyboard, add_cmd_exception,
-             add_cmd_prepare, add_cmd_purge)
+                 add_cmd_keyboard, add_cmd_exception,
+                 add_cmd_prepare, add_cmd_purge)
 def run_cmd(cmds: Command) -> int:
     cmds.logger.debug("main")
     return 0
