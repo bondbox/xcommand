@@ -17,9 +17,9 @@ from typing import Optional
 from typing import Sequence
 from typing import Tuple
 
-from xkits_logger.attribute import __project__
 from xkits_logger.logger import Logger as Log
 
+from xkits_command.attribute import __project__
 from xkits_command.parser import ArgParser
 
 
