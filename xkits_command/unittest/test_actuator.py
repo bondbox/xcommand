@@ -145,7 +145,7 @@ def end_cmd(cmds: Command) -> int:
     return 0
 
 
-class test_commands(unittest.TestCase):
+class TestCommand(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
@@ -262,7 +262,7 @@ class test_commands(unittest.TestCase):
         self.assertEqual(ret, -1)
 
 
-class test_commands_logger(unittest.TestCase):
+class TestCommandsLogger(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):

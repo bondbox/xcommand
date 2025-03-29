@@ -8,7 +8,7 @@ from unittest import mock
 from xkits_command import ArgParser
 
 
-class test_argp(unittest.TestCase):
+class TestArgParser(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
