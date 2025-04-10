@@ -24,7 +24,7 @@ from xkits_command.parser import ArgParser
 
 
 class CommandArgument:
-    '''Define a new command-line node.
+    """Define a new command-line node.
 
     For example:
 
@@ -34,10 +34,10 @@ class CommandArgument:
     >>> @CommandArgument("example")\n
     >>> def cmd(_arg: ArgParser):\n
     >>>     _arg.add_opt_on("-t", "--test")\n
-    '''
+    """
 
     def __init__(self, name: str, **kwargs):
-        '''Initialize the node.
+        """Initialize the node.
 
         @param name: Node name
         @type name: str
@@ -53,7 +53,7 @@ class CommandArgument:
 
         @param add_help: Add a -h/--help option to the node
         @type add_help: bool (default: True)
-        '''
+        """
         if "help" in kwargs and "description" not in kwargs:
             kwargs["description"] = kwargs["help"]
         if "description" in kwargs and "help" not in kwargs:
@@ -136,7 +136,7 @@ class CommandArgument:
 
 
 class CommandExecutor:
-    '''Define the main callback function, and bind it to a node and
+    """Define the main callback function, and bind it to a node and
     all subcommands.
 
     For example:
@@ -147,11 +147,11 @@ class CommandExecutor:
     >>> @CommandExecutor(cmd, cmd_get, cmd_set)\n
     >>> def run(cmds: Command) -> int:\n
     >>>     return 0\n
-    '''
+    """
 
     def __init__(self, cmd_bind: CommandArgument, *sub_cmds: CommandArgument,
                  skip: bool = False):
-        '''Initialize the node.
+        """Initialize the node.
 
         @param cmd_bind: Bind to a root command node
         @type name: CommandArgument
@@ -163,7 +163,7 @@ class CommandExecutor:
         CommandDeletion) does not run when a subcommand is specified,
         run this node without any subcommands
         @type skip: bool (default: False)
-        '''
+        """
         assert isinstance(cmd_bind, CommandArgument)
         assert isinstance(skip, bool)
         cmd_bind.bind = self
@@ -215,7 +215,7 @@ class CommandExecutor:
 
 
 class CommandCreation:
-    '''Define prepare callback function, and bind it with main callback.
+    """Define prepare callback function, and bind it with main callback.
 
     For example:
 
@@ -230,14 +230,14 @@ class CommandCreation:
     >>> @CommandCreation(run)\n
     >>> def pre(cmds: Command) -> int:\n
     >>>     return 0\n
-    '''
+    """
 
     def __init__(self, run_bind: CommandExecutor):
-        '''Initialize the node.
+        """Initialize the node.
 
         @param cmd_bind: Bind to a root command node
         @type name: CommandArgument
-        '''
+        """
         assert isinstance(run_bind, CommandExecutor)
         run_bind.prep = self
         self.__main: CommandExecutor = run_bind
@@ -259,7 +259,7 @@ class CommandCreation:
 
 
 class CommandDeletion:
-    '''Define purge callback function, and bind it with main callback.
+    """Define purge callback function, and bind it with main callback.
 
     For example:
 
@@ -274,14 +274,14 @@ class CommandDeletion:
     >>> @CommandDeletion(run)\n
     >>> def end(cmds: Command) -> int:\n
     >>>     return 0\n
-    '''
+    """
 
     def __init__(self, run_bind: CommandExecutor):
-        '''Initialize the node.
+        """Initialize the node.
 
         @param cmd_bind: Bind to a root command node
         @type name: CommandArgument
-        '''
+        """
         assert isinstance(run_bind, CommandExecutor)
         run_bind.done = self
         self.__main: CommandExecutor = run_bind
@@ -303,7 +303,7 @@ class CommandDeletion:
 
 
 class Command(Log):
-    '''Singleton command-line tool based on argparse.
+    """Singleton command-line tool based on argparse.
 
     Define and bind all callback functions before calling run() or parse().
 
@@ -341,7 +341,7 @@ class Command(Log):
     >>>         argv=argv,\n
     >>>         prog="xkits-command-example",\n
     >>>         description="Simple command-line tool based on argparse.")\n
-    '''
+    """
 
     LOGGER_ARGUMENT_GROUP = "logger options"
 
@@ -369,7 +369,7 @@ class Command(Log):
 
     @property
     def root(self) -> Optional[CommandArgument]:
-        '''Root Command.'''
+        """Root Command."""
         return self.__root
 
     @root.setter
@@ -379,7 +379,7 @@ class Command(Log):
 
     @property
     def args(self) -> Namespace:
-        '''Namespace after parse arguments.'''
+        """Namespace after parse arguments."""
         assert isinstance(self.__args, Namespace)
         return self.__args
 
@@ -390,7 +390,7 @@ class Command(Log):
 
     @property
     def version(self) -> Optional[str]:
-        '''Custom version for "-v" or "--version" output.'''
+        """Custom version for "-v" or "--version" output."""
         return self.__version
 
     @version.setter
@@ -410,7 +410,7 @@ class Command(Log):
 
     @property
     def logger(self) -> Logger:
-        '''Logger.'''
+        """Logger."""
         return self.get_logger(self.prog)
 
     def __add_optional_version(self, _arg: ArgParser):
@@ -590,15 +590,15 @@ class Command(Log):
 
     @classmethod
     def check_error(cls, value: Any) -> int:
-        '''Check value is an error.
+        """Check value is an error.
 
         Return True if value is an error, otherwise False.
-        '''
+        """
         return value if isinstance(value, int) else 0 if value in (None, True) else EINVAL  # noqa:E501
 
     def parse(self, root: Optional[CommandArgument] = None,
               argv: Optional[Sequence[str]] = None, **kwargs) -> Namespace:
-        '''Parse the command line.'''
+        """Parse the command line."""
         if root is None:
             root = self.root
         assert isinstance(root, CommandArgument)
@@ -620,7 +620,7 @@ class Command(Log):
 
     def has_sub(self, root: CommandArgument,
                 args: Optional[Namespace] = None) -> bool:
-        '''If the root command node has any subcommand nodes, return true.
+        """If the root command node has any subcommand nodes, return true.
 
         @param root: Command node
         @type root: CommandArgument
@@ -629,7 +629,7 @@ class Command(Log):
         @type args: Namespace or None (default self.args if None is specified)
 
         @return: bool
-        '''
+        """
         if args is None:
             args = self.args
         assert isinstance(root, CommandArgument)
@@ -692,7 +692,7 @@ class Command(Log):
             root: Optional[CommandArgument] = None,
             argv: Optional[Sequence[str]] = None,
             **kwargs) -> int:
-        '''Parse and run the command line.'''
+        """Parse and run the command line."""
         if root is None:
             root = self.root
 
