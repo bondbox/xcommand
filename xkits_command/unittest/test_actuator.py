@@ -164,20 +164,20 @@ class TestCommand(unittest.TestCase):
     @mock.patch.object(sys, "exit")
     def test_help_action(self, mock_exit: mock.Mock):
         mock_exit.side_effect = [Exception("xkits-test")]
-        self.assertRaises(Exception, self.cmds.run, add_cmd, "--help".split())
+        self.assertRaises(Exception, self.cmds.run, add_cmd, "--help".split())  # noqa:E501,H202
         mock_exit.assert_called_once_with(0)
 
     @mock.patch.object(sys, "exit")
     def test_help_action_h(self, mock_exit: mock.Mock):
         mock_exit.side_effect = [Exception("xkits-test")]
-        self.assertRaises(Exception, self.cmds.run, add_cmd, "-h".split())
+        self.assertRaises(Exception, self.cmds.run, add_cmd, "-h".split())  # noqa:E501,H202
         mock_exit.assert_called_once_with(0)
 
     @mock.patch.object(sys, "exit")
     def test_version_action(self, mock_exit: mock.Mock):
         self.cmds.version = __version__
         mock_exit.side_effect = [Exception("xkits-test")]
-        self.assertRaises(Exception, self.cmds.run, add_cmd,
+        self.assertRaises(Exception, self.cmds.run, add_cmd,  # noqa:H202
                           "--version".split())
         mock_exit.assert_called_once_with(0)
 

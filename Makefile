@@ -42,7 +42,7 @@ pylint:
 	pylint $(shell git ls-files xkits_command/*.py)
 flake8:
 	flake8 xkits_command --count --select=E9,F63,F7,F82 --show-source --statistics
-	flake8 xkits_command --count --exit-zero --max-complexity=20 --max-line-length=127 --statistics
+	flake8 xkits_command --count --exit-zero --max-complexity=20 --max-line-length=127 --statistics --ignore=H405
 pytest:
 	pytest --cov=xkits_command --cov-report=term-missing --cov-report=xml --cov-report=html --cov-config=.coveragerc --cov-fail-under=100
 pytest-clean:

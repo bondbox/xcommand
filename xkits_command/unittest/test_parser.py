@@ -27,13 +27,13 @@ class TestArgParser(unittest.TestCase):
     @mock.patch.object(sys, "exit")
     def test_help_optional_h(self, mock_exit: mock.Mock):
         mock_exit.side_effect = [Exception("xkits-test")]
-        self.assertRaises(Exception, self.argp.parse_args, "-h".split())
+        self.assertRaises(Exception, self.argp.parse_args, "-h".split())  # noqa:E501,H202
         mock_exit.assert_called_once_with(0)
 
     @mock.patch.object(sys, "exit")
     def test_help_optional_help(self, mock_exit: mock.Mock):
         mock_exit.side_effect = [Exception("xkits-test")]
-        self.assertRaises(Exception, self.argp.parse_args, "--help".split())
+        self.assertRaises(Exception, self.argp.parse_args, "--help".split())  # noqa:E501,H202
         mock_exit.assert_called_once_with(0)
 
     def test_argument_group(self):
