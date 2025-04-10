@@ -12,11 +12,6 @@ from typing import Sequence
 from typing import Set
 from typing import Tuple
 
-try:
-    from argcomplete import autocomplete
-except ModuleNotFoundError:  # pragma: no cover
-    pass  # pragma: no cover
-
 from xkits_command.attribute import __project__
 from xkits_command.attribute import __urlhome__
 
@@ -177,7 +172,10 @@ class ArgParser(ArgumentParser):
         namespace: Optional[Namespace] = None
     ) -> Namespace:
         try:
+            from argcomplete import autocomplete  # pylint: disable=C0415
             autocomplete(self)  # For tab completion
+        except ModuleNotFoundError:  # pragma: no cover
+            pass  # pragma: no cover
         except NameError:  # pragma: no cover
             pass  # pragma: no cover
         return super().parse_args(args, namespace)  # type: ignore
