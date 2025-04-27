@@ -416,7 +416,7 @@ class Command(Log):
     def __add_optional_version(self, _arg: ArgParser):
         version = self.version
         if not isinstance(version, str):
-            return
+            return  # pragma: no cover
 
         options = _arg.filter_optional_name("-v", "--version")
         if len(options) > 0:

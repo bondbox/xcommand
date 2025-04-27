@@ -149,14 +149,14 @@ class TestCommand(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        pass
+        cls.cmds = Command()
 
     @classmethod
     def tearDownClass(cls):
         pass
 
     def setUp(self):
-        self.cmds = Command()
+        pass
 
     def tearDown(self):
         pass
