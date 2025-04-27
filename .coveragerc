@@ -2,6 +2,8 @@
 omit =
     xkits_command/unittest/*
     xkits_command/attribute.py
+    xargproject/unittest/*
+    xargproject/attribute.py
 
 [report]
 exclude_lines =

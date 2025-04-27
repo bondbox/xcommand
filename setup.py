@@ -45,7 +45,10 @@ setup(
     project_urls={"Source Code": __urlcode__,
                   "Bug Tracker": __urlbugs__,
                   "Documentation": __urldocs__},
-    packages=find_packages(include=["xkits_command*"], exclude=["xkits_command.unittest"]),  # noqa:E501
+    packages=find_packages(
+        include=["xkits_command*", "xargproject*"],
+        exclude=["xkits_command.unittest", "xargproject.unittest"]
+    ),
     install_requires=all_requirements(),
     cmdclass={
         "install": CustomInstallCommand,
