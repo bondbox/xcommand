@@ -22,3 +22,14 @@ jobs:
     - name: Upload to PyPI
       run: |
         xpip-upload --token ${{ secrets.PYPI_TOKEN }} dist/*
+
+  pypi-index:
+    needs: pypi
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install
+        run: |
+          PKGNAME=$(python setup.py --name)
+          VERSION=$(python setup.py --version)
+          while true; do python -m pip install $PKGNAME==$VERSION && break || sleep 5; done
