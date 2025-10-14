@@ -64,6 +64,7 @@ exclude_lines =
     raise NotImplementedError
     if __name__ == .__main__.:
     def __repr__
+    pass
 ''')
 
     def init_pylintrc(self):
