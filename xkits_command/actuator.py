@@ -590,9 +590,9 @@ class Command(Log):
 
     @classmethod
     def check_error(cls, value: Any) -> int:
-        """Check value is an error.
+        """Check for any errors in value.
 
-        Return True if value is an error, otherwise False.
+        Return 0 if value is None or True, otherwise return EINVAL.
         """
         return value if isinstance(value, int) else 0 if value in (None, True) else EINVAL  # noqa:E501
 
