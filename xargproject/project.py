@@ -215,6 +215,8 @@ console_scripts =
         # create setup.py
         self.write("setup.py", f'''# coding=utf-8
 
+from os.path import dirname
+from os.path import join
 from urllib.parse import urljoin
 
 from setuptools import find_packages
@@ -238,7 +240,8 @@ def all_requirements():
         with open(path, "r", encoding="utf-8") as rhdl:
             return rhdl.read().splitlines()
 
-    requirements = read_requirements("requirements.txt")
+    path: str = join(dirname(__file__), "requirements.txt")
+    requirements = read_requirements(path)
     return requirements
 
 
