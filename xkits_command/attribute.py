@@ -1,10 +1,8 @@
 # coding:utf-8
 
-__project__ = "xkits-command"
 __version__ = "0.5.3"
-__urlhome__ = "https://github.com/bondbox/xcommand/"
-__description__ = "Command line module"
 
-# author
-__author__ = "Mingzhe Zou"
-__author_email__ = "zoumingzhe@outlook.com"
+# project info
+__project_name__ = "xcommand"
+__project_home__ = "https://github.com/bondbox/xcommand/"
+__project_desc__ = "Command line module"

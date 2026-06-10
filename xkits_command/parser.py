@@ -12,8 +12,8 @@ from typing import Sequence
 from typing import Set
 from typing import Tuple
 
-from xkits_command.attribute import __project__
-from xkits_command.attribute import __urlhome__
+from xkits_command.attribute import __project_name__
+from xkits_command.attribute import __project_home__
 
 
 class Checker():
@@ -75,8 +75,8 @@ class ArgParser(ArgumentParser):
                  prog: Optional[str] = None,
                  usage: Optional[str] = None,
                  prev_parser: Optional["ArgParser"] = None,
-                 description: Optional[str] = f"Command-line based on {__project__}.",  # noqa:E501
-                 epilog: Optional[str] = f"For more, please visit {__urlhome__}",  # noqa:E501
+                 description: Optional[str] = f"Command-line based on {__project_name__}.",  # noqa:E501
+                 epilog: Optional[str] = f"For more, please visit {__project_home__}",  # noqa:E501
                  **kwargs):
         kwargs.setdefault("prog", prog)
         kwargs.setdefault("usage", usage)

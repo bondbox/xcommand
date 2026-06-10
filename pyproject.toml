@@ -1,0 +1,42 @@
+[build-system]
+build-backend = "hatchling.build"
+requires = [ "hatch-requirements-txt", "hatchling", "xpip-build>=1.4",]
+
+[project]
+classifiers = [ "Programming Language :: Python", "Programming Language :: Python :: 3",]
+description = "Command line module"
+dynamic = [ "dependencies", "version",]
+keywords = [ "argcomplete", "argparse", "bash", "command-line", "shell", "terminal",]
+license-files = [ "LICENSE",]
+name = "xkits-command"
+requires-python = ">=3.8"
+[[project.authors]]
+name = "Mingzhe Zou"
+email = "zoumingzhe@outlook.com"
+
+[project.readme]
+content-type = "text/markdown"
+file = "readme.md"
+
+[project.scripts]
+
+[project.urls]
+Homepage = "https://github.com/bondbox/xcommand/"
+
+[tool.hatch.version]
+path = "xkits_command/attribute.py"
+
+[tool.hatch.build.targets.sdist]
+exclude = [ "xkits_command/unittest",]
+packages = [ "xkits_command",]
+
+[tool.hatch.build.targets.wheel]
+exclude = [ "xkits_command/unittest",]
+packages = [ "xkits_command",]
+
+[tool.hatch.metadata.hooks.requirements_txt]
+files = [ "requirements.txt",]
+
+[tool.hatch.build.targets.sdist.force-include]
+
+[tool.hatch.build.targets.wheel.force-include]

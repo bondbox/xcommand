@@ -19,7 +19,7 @@ from typing import Tuple
 
 from xkits_logger.logger import Logger as Log
 
-from xkits_command.attribute import __project__
+from xkits_command.attribute import __project_name__
 from xkits_command.parser import ArgParser
 
 
@@ -350,7 +350,7 @@ class Command(Log):
 
     def __init__(self):
         if not self.__INITIALIZED:
-            self.__prog: str = __project__
+            self.__prog: str = __project_name__
             self.__root: Optional[CommandArgument] = None
             self.__args: Namespace = Namespace()
             self.__version: Optional[str] = None

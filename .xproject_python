@@ -1,0 +1,30 @@
+name = "xcommand"
+home = "https://github.com/bondbox/xcommand/"
+description = "Command line module"
+keywords = [ "argcomplete", "argparse", "bash", "command-line", "shell", "terminal",]
+version = "0.5.3"
+
+[authors.zoumingzhe]
+name = "Mingzhe Zou"
+email = "zoumingzhe@outlook.com"
+
+[packages.xkits-command]
+requires_python = ">=3.8"
+authors = [ "zoumingzhe",]
+keywords = []
+requirements = [ "argcomplete>=3.2.1", "xkits-logger>=0.2",]
+max_complexity = 20
+max_line_length = 127
+
+[packages.xkits-command.modules.xkits-command]
+base = "xkits_command"
+omitted = [ "unittest/*", "attribute.py",]
+exclude = [ "unittest",]
+
+[packages.xkits-command.modules.xkits-command.include]
+
+[packages.xkits-command.modules.xkits-command.scripts]
+
+[packages.xkits-command.modules.xkits-command.templates]
+"__init__.py" = false
+"attribute.py" = true
