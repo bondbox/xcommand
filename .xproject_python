@@ -12,7 +12,7 @@ email = "zoumingzhe@outlook.com"
 requires_python = ">=3.8"
 authors = [ "zoumingzhe",]
 keywords = []
-requirements = [ "argcomplete>=3.2.1", "xkits-logger>=0.2",]
+requirements = [ "argcomplete>=3.2.1", "xkits-logger>=0.3",]
 max_complexity = 20
 max_line_length = 127
 
