@@ -2,7 +2,7 @@ name = "xcommand"
 home = "https://github.com/bondbox/xcommand/"
 description = "Command line module"
 keywords = [ "argcomplete", "argparse", "bash", "command-line", "shell", "terminal",]
-version = "0.5.3"
+version = "0.6"
 
 [authors.zoumingzhe]
 name = "Mingzhe Zou"
