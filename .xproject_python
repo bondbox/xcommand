@@ -22,7 +22,7 @@ authors = [
 ]
 keywords = []
 requirements = [
-    "argcomplete>=3.2.1",
+    "argcomplete>=3.2.1,<=3.7.0",
     "xkits-logger>=0.3",
 ]
 build_backend = "hatchling"
