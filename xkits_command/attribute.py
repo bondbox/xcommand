@@ -6,6 +6,6 @@ __project_home__ = "https://github.com/bondbox/xcommand/"
 __project_desc__ = "Command line module"
 
 # package info
-__version__ = "0.7"
+__version__ = "0.7.1"
 __package_name__ = "xkits-command"
 __package_desc__ = "Command line module"
